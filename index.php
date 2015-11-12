@@ -1,3 +1,6 @@
+<?php
+include ("class/sqltotable.class.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,13 +32,42 @@
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
   <?php 
-  } else {
+  } 
+
+  if(isset($_POST['query'])){
+    if($_POST['query']=="") {
+      echo "Empty value";
+    exit();
+  }
+    $create= new sqltotable();
     ?>
     <form role="form" action="" method="post" enctype="multipart/form-data">
-
-
-    </form>
+    <input type="hidden" id="generate" name="generate" value="1">
+    <?php echo $create->form($_POST['query']); ?>
+<div class="row">
+      
+      <div class="col-lg-6">   <button type="submit" class="btn btn-default">Create Table</button></div>
+    </div>
+        </form>
     <?php
+  }
+  if(isset($_POST['generate'])){
+        $create= new sqltotable();
+        unset($_POST['generate']);
+
+?>
+  <form role="form" action="" method="post" enctype="multipart/form-data">
+    <H2>Generated</H2>
+    <div class="form-group">
+      <label for="email">SQL Query Generated</label>
+  <pre>
+      <?php echo $create->create($_POST)?>
+      </pre> 
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+<?php
   }
   ?>
 </div>
