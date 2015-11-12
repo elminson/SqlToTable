@@ -18,13 +18,8 @@
   <body>
     <h1>From Insert SQL to Create Table</h1>
 <div class="container">
-  <h2>Upload Sql Query file </h2>
-  <form role="form" action="upload.php" method="post" enctype="multipart/form-data">
-
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="file" class="form-control" id="file" name="file" placeholder="File ">
-    </div>
+<?php if(!isset($_POST['query'])){ ?>
+  <form role="form" action="" method="post" enctype="multipart/form-data">
     <H2> OR Paste de sql here</H2>
     <div class="form-group">
       <label for="email">SQL Query</label>
@@ -33,6 +28,16 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
+  <?php 
+  } else {
+    ?>
+    <form role="form" action="" method="post" enctype="multipart/form-data">
+
+
+    </form>
+    <?php
+  }
+  ?>
 </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
