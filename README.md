@@ -1,7 +1,7 @@
 table-from-insert-sql
 =====================
 
-Create table from insert sql  
+Create table from insert sql.  
 
 This class can generate create table SQL from an insert query.
 
