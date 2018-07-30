@@ -13,8 +13,8 @@ require_once __DIR__ . '/vendor/autoload.php';
  */
 
 $sql = new SqlToTable();
-echo $sql->create_backup($argv[1]);
-//$resul = $argv[1];
-//
-//echo $resul;
-//echo $sql->create($argv[1]);
+try {
+    echo $sql->create_backup($argv[1]);
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}

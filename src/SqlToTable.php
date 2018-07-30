@@ -18,22 +18,23 @@ class SqlToTable
     /**
      * @param string $sql_insert
      * @return string
+     * @throws \Exception
      */
     function form($sql_insert = "")
     {
         $pos = strpos(strtolower($sql_insert), "values");
         if ($pos === false) {
-            return "Invalid query";
+            throw  new \Exception("Invalid query");
         }
         $array_1 = explode("VALUES", $sql_insert);
         if ($array_1[0] == "") {
-            return "Invalid query";
+            throw  new \Exception("Invalid query");
         }
         $array_2 = explode("INTO ", $array_1[0]);
         $array_3 = explode("(", $array_2[1]);
         $table = $array_3[0];
         if ($table == null) {
-            return "Invalid query";
+            throw  new \Exception("Invalid query");
         }
         $array_3[1] = str_replace(")", "", $array_3[1]);
         $array_4 = explode(",", substr($array_3[1], 0, strlen($array_3[1]) - 2));
@@ -107,17 +108,32 @@ class SqlToTable
     /**
      * @param $sql_insert
      * @return string
+     * @throws \Exception
      */
     function create_backup($sql_insert)
     {
         $value = "";
+        $novalid = false;
+        $array_3 =[];
         $array_1 = explode("VALUES", $sql_insert);
-        $array_2 = explode("INTO ", $array_1[0]);
-        $array_3 = explode("(", $array_2[1]);
+        if (isset($array_1[0])) {
+            $array_2 = explode("INTO ", $array_1[0]);
+            if (isset($array_2[1])) {
+                $array_3 = explode("(", $array_2[1]);
+            } else {
+                $novalid = true;
+            }
+        } else {
+            $novalid = true;
+        }
+
+        if ($novalid == true || !isset($array_3[0])) {
+            throw  new \Exception("Invalid query");
+        }
         echo "Tabla name: " . $array_3[0] . "\n";
         $table = $array_3[0];
         if ($table == null) {
-            return "Invalid query";
+            throw  new \Exception("Invalid query");
         }
         $array_4 = explode(",", substr($array_3[1], 0, strlen($array_3[1]) - 2));
         echo "Fields: ";
