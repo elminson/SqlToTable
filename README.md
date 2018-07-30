@@ -14,5 +14,17 @@ If you have a SQL INSERT query complete with all the fields names and values, yo
 This class can do that by parsing the SQL INSERT query and generating a CREATE TABLE statement with all the field names and types based on the parsed query values.
 
 
-Example query 
-INSERT INTO `npanxx` (`id`, `npa`, `nxx`, `xi`, `xf`, `npanxx`, `region`, `provincia`, `cliente`, `servicio`, `tipored`, `localidad`, `remoto`, `central_host`, `fecha_inst`, `fecha_serv`, `compania`) VALUES (1, '809', '201', '00', '99', '809201', 'No aplica', 'No aplica', '', 'CELULAR PREPAGO', 'Movil', '30 de marzo', '', '30 de Marzo AUTOPLEX', '17/06/2005', '01/07/2005', 'CODETEL')
+Example query
+```sql
+ INSERT INTO `npanxx` (`id`, `npa`, `nxx`, `xi`, `xf`, `npanxx`, `region`, `provincia`, `cliente`, `servicio`, `tipored`, `localidad`, `remoto`, `central_host`, `fecha_inst`, `fecha_serv`, `compania`) VALUES (1, '809', '201', '00', '99', '809201', 'No aplica', 'No aplica', '', 'CELULAR PREPAGO', 'Movil', '30 de marzo', '', '30 de Marzo AUTOPLEX', '17/06/2005', '01/07/2005', 'CODETEL')
+ ```
+ 
+ ```
+ #php test.php "INSERT INTO `npanxx` (`id`, `npa`, `nxx`, `xi`, `xf`, `npanxx`, `region`, `provincia`, `cliente`, `servicio`, `tipored`, `localidad`, `remoto`, `central_host`, `fecha_inst`, `fecha_serv`, `compania`) VALUES (1, '809', '201', '00', '99', '809201', 'No aplica', 'No aplica', '', 'CELULAR PREPAGO', 'Movil', '30 de marzo', '', '30 de Marzo AUTOPLEX', '17/06/2005', '01/07/2005', 'CODETEL')"
+```
+
+#Form Format
+
+Under tests/index.php
+ 
+
