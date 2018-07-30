@@ -1,5 +1,10 @@
 <?php
-include ("class/sqltotable.class.php");
+
+namespace Elminson\SqlToTable;
+
+require_once __DIR__ . '../vendor/autoload.php';
+
+//include("../src/SqlToTable.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +44,7 @@ include ("class/sqltotable.class.php");
       echo "Empty value";
     exit();
   }
-    $create= new sqltotable();
+    $create= new SqlToTable();
     ?>
     <form role="form" action="" method="post" enctype="multipart/form-data">
     <input type="hidden" id="generate" name="generate" value="1">
@@ -52,7 +57,7 @@ include ("class/sqltotable.class.php");
     <?php
   }
   if(isset($_POST['generate'])){
-        $create= new sqltotable();
+        $create= new SqlToTable();
         unset($_POST['generate']);
 
 ?>

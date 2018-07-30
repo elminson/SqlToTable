@@ -1,0 +1,19 @@
+{
+    "name": "elminson/sqltotable",
+    "description": "Create table from insert sql",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Elminson De Oleo Baez",
+            "email": "edeoleo@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Elminson\\SqlToTable\\": "src/"
+        }
+    }
+}
